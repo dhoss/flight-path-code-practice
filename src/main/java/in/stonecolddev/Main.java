@@ -71,7 +71,6 @@ public class Main {
     String nextKey = "";
     for (Map.Entry<String, String> entry : path.entrySet()) {
       boolean atRoot = false;
-      boolean atEnd = false;
 
       if (nextKey.equalsIgnoreCase(""))
         nextKey = start;
@@ -80,20 +79,11 @@ public class Main {
         atRoot = true;
       }
 
-      if (nextKey.equalsIgnoreCase(end))
-        atEnd = true;
-
-
       if (atRoot) {
-        System.out.println("*(**AT ROOT");
         fullPath.add(entry.getValue());
         nextKey = entry.getValue();
-        System.out.println("*** CURRENT KEY " + entry.getKey());
-        System.out.println("*(*** NEXT KEY " + nextKey);
       } else {
         String currentDestination = path.get(nextKey);
-        System.out.println("*** AT END " + atEnd);
-        System.out.println("**** CURRENT DESTINATION " + currentDestination);
         fullPath.add(nextKey);
         fullPath.add(currentDestination);
         nextKey = path.get(currentDestination);
